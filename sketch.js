@@ -3,11 +3,11 @@ const density = "Ñ@#W$9876543210?!abc;:+=-,._               ";
 let img;
 
 function preload() {
-  img = loadImage("me500.png")
+  img = loadImage("me100.png")
 }
 
 function setup() {
-  createCanvas(500, 500);
+  noCanvas();
 
   background(0);
   // image(img, 0, 0, width, height);
@@ -18,6 +18,7 @@ function setup() {
   img.loadPixels();
 
   for (let i = 0; i < img.height; i++) {
+    let row = '';
     for (let j = 0; j < img.width; j++) {
       const pixelIndex = (i + j * img.width) * 4;
 
@@ -27,16 +28,11 @@ function setup() {
 
       const avg = (r + g + b) / 3;
 
-      noStroke();
-      fill(255);
-
       const len = density.length;
       const charIndex = floor(map(avg, 0, 255, len, 0));
 
-      //square(i * w, j * h, w);
-      textSize(w);
-      textAlign(CENTER, CENTER);
-      text(density.charAt(charIndex), i * w + (w * 0.5), j * h + (h * 0.5));
+      row += density.charAt(charIndex);
     }
+    createDiv(row)
   }
 }
