@@ -1,13 +1,13 @@
-const density = "Ñ@#W$9876543210?!abc;:+=-,._ ";
+const density = "Ñ@#W$9876543210?!abc;:+=-,._               ";
 
 let img;
 
 function preload() {
-  img = loadImage("me.jpg")
+  img = loadImage("me500.png")
 }
 
 function setup() {
-  createCanvas(img.width, img.height);
+  createCanvas(500, 500);
 
   background(0);
   // image(img, 0, 0, width, height);
